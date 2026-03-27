@@ -88,12 +88,13 @@ Avant de commencer, assurez-vous d'avoir installé :
 ```bash
 git clone https://github.com/chaimaa123-info/Student-Management-System.git
 cd Student-Management-System
-
+``` 
 
 ### 2. Configurer PostgreSQL
 ```sql
 -- Créer la base de données
 CREATE DATABASE etudiant_sys;
+ ``` 
 
 ### 3. Configurer l'application
 
@@ -118,7 +119,7 @@ jwt.secret=d2e85a98284ad65f2dd3d847ea58a5e9490e5ee697dbb328c2b1ea7f5eefd6db
 
 # Serveur
 server.port=8080
-
+``` 
 
 ### 4. Compiler et exécuter
 
@@ -128,3 +129,4 @@ mvn clean install
 
 # Démarrer l'application
 mvn spring-boot:run
+``` 
