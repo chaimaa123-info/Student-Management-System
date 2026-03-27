@@ -103,13 +103,13 @@ Ouvrez le fichier `src/main/resources/application.properties` et configurez-le a
 # Base de données
 spring.datasource.url=jdbc:postgresql://localhost:5432/etudiant_sys
 spring.datasource.username=postgres
-spring.datasource.password=votre_mot_de_passe
+spring.datasource.password=${DB_PASSWORD}
 
 # Email (pour l'envoi des emails d'activation)
 spring.mail.host=smtp.gmail.com
 spring.mail.port=587
-spring.mail.username=votre_email@gmail.com
-spring.mail.password=votre_mot_de_passe_application
+spring.mail.username=${GMAIL_APP_USERNAME}
+spring.mail.password=${GMAIL_APP_PASSWORD}
 spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=true
 

@@ -15,7 +15,7 @@ public class EmailService {
 
   @Value("${backend.origin}")
   private String ORIGIN;
-  @Value("${spring.mail.username}")
+  @Value("${GMAIL_APP_USERNAME}")
   private String from;
 
   public void sendAccountCreationEmail(String to, String token) {
