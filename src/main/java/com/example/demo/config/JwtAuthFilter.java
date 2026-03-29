@@ -1,7 +1,5 @@
 package com.example.demo.config;
 
-
-
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,11 +29,11 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     String authHeader = request.getHeader("Authorization");
     String token = null;
 
-    if (authHeader != null && authHeader.startsWith("Bearer ")) {
-      token = authHeader.substring(7);
+    if (authHeader != null && authHeader.startsWith("Bearer ")) { //Vérifie si token existe
+      token = authHeader.substring(7); //Supprime Bearer pour garder seulement token
     }
     if (token == null) {
-      filterChain.doFilter(request, response);
+      filterChain.doFilter(request, response); //continue sans authentification.
       return;
     }
     String username = jwtHelper.extractUsername(token);
@@ -52,7 +50,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             userDetails.getAuthorities()
         );
         authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-        SecurityContextHolder.getContext().setAuthentication(authenticationToken);
+        SecurityContextHolder.getContext().setAuthentication(authenticationToken); //Spring considère maintenant que user est authentifié.
       }
     }
 

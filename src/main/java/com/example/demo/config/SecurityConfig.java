@@ -39,7 +39,7 @@ public class SecurityConfig {
     }
 
 
-    // (Security Rules) قواعد الدخول
+    // (Security Rules) 
     @Bean // comme @Service pour faire des injections au methods pas class
     public SecurityFilterChain SecurityFilterChain(HttpSecurity http) throws Exception{
 
@@ -72,7 +72,7 @@ public class SecurityConfig {
     }
 
 
-    //هاد هو المدير لي كايقرر واش المستخدم اللي دخل صحيح ولا لا
+    //C’est le contrôleur qui décide si l’utilisateur connecté est valide ou non.
     @Bean
   AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
     var authBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);

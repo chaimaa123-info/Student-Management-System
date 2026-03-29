@@ -38,7 +38,7 @@ public class JwtHelper {
 
   public String generateToken(UserDetails userDetails) {
      Map<String, Object> claims = new HashMap<>();
-    // ✅ Ajouter les rôles dans le token
+    //  Ajouter les rôles dans le token
     claims.put("roles", userDetails.getAuthorities());
     return this.generateToken(claims, userDetails);
   }
@@ -49,10 +49,10 @@ public class JwtHelper {
         .builder()
         .claims(extraClaims)
         .subject(userDetails.getUsername())
-        .issuedAt(new Date(System.currentTimeMillis()))
-        .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * 14))
-        .signWith(getSignInKey())
-        .compact();
+        .issuedAt(new Date(System.currentTimeMillis())) //date création token
+        .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * 14)) //token valide 14 jours
+        .signWith(getSignInKey()) //Transforme clé texte en clé cryptographique.
+        .compact(); //transforme en String JWT finale
   }
 
 
